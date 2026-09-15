@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'http_service.dart';
 import 'form_page.dart';
+import 'detail_page.dart'; 
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -55,6 +56,14 @@ class _HomePageState extends State<HomePage> {
               return Card(
                 margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPage(postId: post['id']),
+                      ),
+                    );
+                  },
                   title: Text(
                     post['title'] ?? '',
                     style: const TextStyle(fontWeight: FontWeight.bold),

@@ -48,6 +48,26 @@ app.get('/api/posts', (req: Request, res: Response) => {
   });
 });
 
+app.get('/api/posts/:id', (req: Request, res: Response) => {
+  const { id } = req.params;
+  const query = `
+    SELECT posts.*, categories.name AS category_name 
+    FROM posts 
+    LEFT JOIN categories ON posts.category_id = categories.id 
+    WHERE posts.id = ?
+  `;
+
+  db.query(query, [id], (err, results: any) => {
+    if (err) {
+      return res.status(500).json({ error: (err as Error).message });
+    }
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'Artikel tidak ditemukan' });
+    }
+    res.json(results[0]);
+  });
+});
+
 app.delete('/api/posts/:id', (req: Request, res: Response) => {
   const { id } = req.params;
   const query = 'DELETE FROM posts WHERE id = ?';
