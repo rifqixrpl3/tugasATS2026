@@ -37,7 +37,7 @@ class DetailPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  'Kategori ID: ${post['category_id'] ?? '-'}',
+                  'Kategori: ${post['category_name'] ?? 'Tidak diketahui'}',
                   style: TextStyle(color: Colors.grey[600], fontSize: 14),
                 ),
                 const Divider(height: 24),

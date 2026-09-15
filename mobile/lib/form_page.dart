@@ -39,7 +39,7 @@ class _FormPageState extends State<FormPage> {
       if (widget.post != null) 'id': widget.post!['id'],
       'title': _titleController.text,
       'content': _contentController.text,
-      'category_id': 1, // Sesuaikan ID kategori sementara
+      'category_id': 1, 
       'category_name': _categoryController.text,
     });
   }

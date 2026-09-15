@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class HttpService {
-  static const String baseUrl = 'http://127.0.0.1:3000/api';
+static const String baseUrl = 'http://localhost:3000/api';
 
   static Future<List<dynamic>> getPosts() async {
     final response = await http.get(Uri.parse('$baseUrl/posts'));
